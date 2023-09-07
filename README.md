@@ -148,3 +148,14 @@ If so set your archflags during pip install. eg: _ARCHFLAGS="-arch x86_64" pip3 
 
 # Disclaimer
 This is a test project to validate the feasibility of a fully private solution for question answering using LLMs and Vector embeddings. It is not production ready, and it is not meant to be used in production. The models selection is not optimized for performance, but for privacy; but it is possible to use different models and vectorstores to improve performance.
+
+
+# Instructions to run in docker
+Copy the model(s) in a volume. To do so you need a container (not necessary running) and execute the command:
+```
+docker cp models/llama-2-7b.ggmlv3.q5_0.bin {container-name}:/code/models  
+```
+Then you can run the container with the command:
+```
+docker run -d --name test-privategpt -p 80:80 --mount source=llm-volume,destination=/code/models api-privategpt 
+```

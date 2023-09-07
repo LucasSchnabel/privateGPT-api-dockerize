@@ -1,0 +1,11 @@
+.github
+db
+models
+source_documents
+venv
+.gitignore
+example.env
+LICENSE
+poetry.lock
+pyproject.toml
+README.md
